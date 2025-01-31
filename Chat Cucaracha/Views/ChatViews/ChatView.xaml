@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Chat_Cucaracha.Views.ChatViews.ChatView"
+             Title="User Name"
+             xmlns:prueba="clr-namespace:Chat_Cucaracha.Views.PruebasViews"
+             xmlns:convert="clr-namespace:Chat_Cucaracha.Convertidores">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <convert:HorizontalOptionConvert x:Key="MessageAlignmentConverter" />
+            <convert:ColorOptionConvert x:Key="MessageColorConverter" />
+            <convert:VisibleOptionConvert x:Key="VisibleOptionConvert"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0.5,1" EndPoint="0.5,0">
+                <GradientStop Color="BlueViolet" Offset="0"/>
+                <GradientStop Color="#FFFFFF" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"></ColumnDefinition>
+            <ColumnDefinition Width=".3*"></ColumnDefinition>
+            <ColumnDefinition Width=".7*"></ColumnDefinition>
+            <ColumnDefinition Width="10"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"></RowDefinition>
+            <RowDefinition Height=".3*"></RowDefinition>
+            <RowDefinition Height=".7*"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="10"></RowDefinition>
+        </Grid.RowDefinitions>
+        <CollectionView Margin="0,0,0,10"
+                        ItemsSource="{Binding mensajes}"
+              Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2">
+           
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Border HeightRequest="50" WidthRequest="50" IsVisible="{Binding enviado, Converter={StaticResource VisibleOptionConvert}}">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="20,20,20,20" />
+                            </Border.StrokeShape>
+                            <ImageButton Background="LightCyan" IsVisible="{Binding enviado, Converter={StaticResource VisibleOptionConvert}}" Source="dotnet_bot.png"></ImageButton>
+                        </Border>
+                        <Frame Padding="10" Grid.Column="1" Margin="10"
+                               BackgroundColor="{Binding enviado, Converter={StaticResource MessageColorConverter}}"
+                               HorizontalOptions="{Binding enviado, Converter={StaticResource MessageAlignmentConverter}}">
+                            <Label Text="{Binding mensaje}" />
+                        </Frame>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Grid Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="3" ColumnDefinitions="*,auto">
+            <Editor x:Name="myChatMessage" Placeholder="Messge" FontSize="25"></Editor>
+            <Button Command="{Binding TestCommand}" HorizontalOptions="End" Margin="10,0,0,0" Text="Enviar" Grid.Column="1"></Button>
+        </Grid>
+    </Grid>
+</ContentPage>

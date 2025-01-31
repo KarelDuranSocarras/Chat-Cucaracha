@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="Chat_Cucaracha.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:login="clr-namespace:Chat_Cucaracha.Views.LoginView"
+    xmlns:chat="clr-namespace:Chat_Cucaracha.Views.ChatViews"
+    xmlns:prueba="clr-namespace:Chat_Cucaracha.Views.PruebasViews"
+    Shell.FlyoutBehavior="Disabled"
+    Title="Chat_Cucaracha">
+
+    
+    <ShellContent
+        ContentTemplate="{DataTemplate login:AccesoView}"
+        Route="MainPage" />
+    <ShellContent
+        ContentTemplate="{DataTemplate chat:UsuariosConectadosView}"
+        Route="UsuariosConectadosView" />
+    <ShellContent
+        ContentTemplate="{DataTemplate chat:ChatView}"
+        Route="ChatView" />
+    <ShellContent
+        ContentTemplate="{DataTemplate prueba:PruebaView}"
+        Route="PruebaView" />
+</Shell>

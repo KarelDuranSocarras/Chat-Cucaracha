@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Chat_Cucaracha.Views.ChatViews.UsuariosConectadosView"
+             Title="Chats">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0.5,1" EndPoint="0.5,0">
+                <GradientStop Color="BlueViolet" Offset="0"/>
+                <GradientStop Color="#FFFFFF" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <SearchBar></SearchBar>
+        <CollectionView ItemsSource="{Binding usuariosConectados}" Grid.Row="1"
+                        ItemsLayout="HorizontalList"
+                        SelectionMode="Single"
+                        SelectedItem="{Binding ChatSeleccionado, Mode=TwoWay}"
+                        SelectionChangedCommand="{Binding AccederChatCommand}"
+                        SelectionChangedCommandParameter="{Binding ChatSeleccionado}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        
+                        <Border HeightRequest="50" WidthRequest="50">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="20,20,20,20" />
+                            </Border.StrokeShape>
+                            <Image  Background="LightCyan"  Source="dotnet_bot.png"></Image>
+                        </Border>
+                        <Label Grid.Row="1"
+                               Grid.Column="1" HorizontalOptions="Center"
+                               Text="{Binding nombre}"
+                               FontAttributes="Italic"
+                               VerticalOptions="End" />        
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <CollectionView ItemsSource="{Binding chatsDisponibles}"
+                        Grid.Row="2">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Border Grid.Column="0" Grid.RowSpan="2" HeightRequest="50" WidthRequest="50">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="20,20,20,20" />
+                            </Border.StrokeShape>
+                            <Image  Background="LightCyan"  Source="dotnet_bot.png"></Image>
+                        </Border>
+                        <Label Grid.Row="0" Margin="5"
+                               Grid.Column="1"
+                               Text="{Binding nombreChat}"
+                               FontAttributes="Italic"/>
+                        <Label Grid.Row="1" Margin="5"
+                               Grid.Column="1"
+                               Text="{Binding ultimoMensaje}"
+                               FontAttributes="Italic"
+                               VerticalOptions="End" />
+                        <Label Grid.Row="1" Margin="5"
+                               Grid.Column="2" HorizontalOptions="End"
+                               VerticalOptions="End"
+                               Text="{Binding mensajesSinLeer}"/>
+                        <Label Grid.Row="0" Margin="5"
+                               Grid.Column="2" HorizontalOptions="End"
+                               Text="{Binding horaUltimoMensaje}"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>

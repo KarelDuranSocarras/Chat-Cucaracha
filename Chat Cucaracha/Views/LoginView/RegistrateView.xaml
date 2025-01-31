@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Chat_Cucaracha.Views.LoginView.RegistrateView"
+             Title="RegistrateView">
+    <StackLayout Padding="30" Spacing="10">
+        <Label Text="Crear una cuenta" 
+           FontSize="24" 
+           HorizontalOptions="Center" />
+
+        <Entry x:Name="usernameEntry" 
+           Placeholder="Nombre de usuario" 
+           Keyboard="Default" />
+
+        <Entry x:Name="emailEntry" 
+           Placeholder="Correo electrónico" 
+           Keyboard="Email" />
+
+        <Entry x:Name="passwordEntry" 
+           Placeholder="Contraseña" 
+           IsPassword="True" />
+
+        <Entry x:Name="confirmPasswordEntry" 
+           Placeholder="Confirmar contraseña" 
+           IsPassword="True" />
+
+        <Button Text="Registrarse" />
+
+        <StackLayout Orientation="Horizontal" 
+                 HorizontalOptions="Center">
+            <Label Text="¿Ya tienes una cuenta?" />
+            <Label Text="Iniciar Sesión" 
+               TextColor="Blue"  />
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

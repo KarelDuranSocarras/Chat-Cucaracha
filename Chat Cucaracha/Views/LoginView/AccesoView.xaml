@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Chat_Cucaracha.Views.LoginView.AccesoView">
+    <StackLayout Padding="30" Spacing="10">
+        <StackLayout.Background>
+            <LinearGradientBrush StartPoint="0.5,1" EndPoint="0.5,0">
+                <GradientStop Color="BlueViolet" Offset="0"/>
+                <GradientStop Color="#FFFFFF" Offset="1"/>
+            </LinearGradientBrush>
+        </StackLayout.Background>
+        <Label Text="Bienvenido a CucaraCHAT" 
+           FontSize="24" 
+           HorizontalOptions="Center" />
+
+        <Entry Text="{Binding UserName}"
+           Placeholder="Nombre de usuario" 
+           Keyboard="Default" />
+        <Button Text="Iniciar Sesión"
+                Command="{Binding AccederCommand}"/>
+
+
+    </StackLayout>
+</ContentPage>

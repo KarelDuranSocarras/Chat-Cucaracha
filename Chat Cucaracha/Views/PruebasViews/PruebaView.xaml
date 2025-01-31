@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prueba="clr-namespace:Chat_Cucaracha.Views.PruebasViews"
+             x:Class="Chat_Cucaracha.Views.PruebasViews.PruebaView"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             Title="PruebaView">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <prueba:MensajeEnviado Grid.Column="1" HorizontalOptions="End"></prueba:MensajeEnviado>
+        <prueba:MesnajeRecibido Grid.Column="1" HorizontalOptions="Start"></prueba:MesnajeRecibido>
+        <prueba:Foto Grid.Column="0"></prueba:Foto>
+    </Grid>
+    
+</ContentPage>
