@@ -15,7 +15,24 @@
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <SearchBar></SearchBar>
+        <SearchBar Placeholder="Buscar Usuario" SearchCommand="{Binding BuscarUsuarioCommand}"
+                   Text="{Binding Texto, Mode=TwoWay}"
+                  ></SearchBar>
+        <!--<CollectionView Grid.Row="1" ItemsSource="{Binding UsuariosBuscados}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition Height="auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Label Text="{Binding nombre}"></Label>
+                        <Label Grid.Row="1" Text="{Binding nombre}"></Label>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            
+        </CollectionView>-->
         <CollectionView ItemsSource="{Binding usuariosConectados}" Grid.Row="1"
                         ItemsLayout="HorizontalList"
                         SelectionMode="Single"

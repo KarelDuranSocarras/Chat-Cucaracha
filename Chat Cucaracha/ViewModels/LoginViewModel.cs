@@ -34,6 +34,7 @@ namespace Chat_Cucaracha.ViewModels
             {
                 await Shell.Current.GoToAsync("UsuariosConectadosView");
             });
+            UserName = null;
         }
         private bool Validacion()
         {

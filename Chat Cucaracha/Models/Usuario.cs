@@ -5,6 +5,5 @@
         public string? id { get; set; }
         public string? nombre{ get; set; }
         public string? direccionImagen{ get; set; }
-        public int cantidadUsuarios { get; set; }
     }
 }
